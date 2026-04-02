@@ -99,5 +99,5 @@ yesButton.addEventListener("click", () => {
 
 noButton.addEventListener("click", (event) => {
   event.preventDefault();
-  message.textContent = "Nope. This website has already chosen romance.";
+  message.textContent = "haha loser u cant say no";
 });
