@@ -1,0 +1,212 @@
+:root {
+  --bg-top: #fff8e7;
+  --bg-bottom: #ffd6e7;
+  --card: rgba(255, 255, 255, 0.72);
+  --card-border: rgba(255, 255, 255, 0.9);
+  --text: #6b315d;
+  --muted: #8f5d7c;
+  --yes: #ff6b9e;
+  --yes-shadow: #ff3f83;
+  --no: #fff2f7;
+  --no-border: #f6a9c4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Fredoka", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.8), transparent 35%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  overflow: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  position: relative;
+  width: min(680px, 100%);
+  padding: 32px 28px 40px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 32px;
+  box-shadow: 0 20px 60px rgba(181, 88, 128, 0.18);
+  backdrop-filter: blur(16px);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 14px 0 10px;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 0.95;
+}
+
+.subtext {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.scene {
+  position: relative;
+  margin-top: 28px;
+  height: 270px;
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 234, 241, 0.85));
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  inset: auto 50% 30px;
+  width: 240px;
+  height: 120px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 141, 181, 0.24);
+  filter: blur(28px);
+}
+
+.heart {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 107, 158, 0.15);
+  transform: rotate(45deg);
+  animation: drift 6s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.heart::before {
+  left: -18px;
+}
+
+.heart::after {
+  top: -18px;
+}
+
+.heart-one {
+  top: 34px;
+  left: 52px;
+}
+
+.heart-two {
+  right: 62px;
+  top: 62px;
+  animation-delay: -2s;
+}
+
+.buttons {
+  position: relative;
+  width: min(520px, calc(100% - 32px));
+  height: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  position: absolute;
+  top: 54%;
+  min-width: 122px;
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 26px;
+  font-family: "Gaegu", cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.btn-yes {
+  left: 18%;
+  background: var(--yes);
+  color: white;
+  box-shadow: 0 10px 0 var(--yes-shadow);
+}
+
+.btn-no {
+  left: 58%;
+  background: var(--no);
+  color: var(--text);
+  border: 2px solid var(--no-border);
+  box-shadow: 0 10px 0 rgba(246, 169, 196, 0.7);
+}
+
+.message {
+  min-height: 2.2rem;
+  margin: 22px 0 0;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: rotate(45deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(45deg) translateY(-14px);
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 24px 20px 32px;
+  }
+
+  .scene {
+    height: 300px;
+  }
+
+  .btn {
+    min-width: 106px;
+    padding: 14px 22px;
+    font-size: 1.6rem;
+  }
+
+  .btn-yes {
+    left: 10%;
+  }
+
+  .btn-no {
+    left: 56%;
+  }
+}
