@@ -2,16 +2,42 @@ const yesButton = document.getElementById("yes-btn");
 const noButton = document.getElementById("no-btn");
 const buttonZone = document.getElementById("button-zone");
 const message = document.getElementById("message");
+const celebration = document.getElementById("celebration");
+const confettiLayer = document.getElementById("confetti-layer");
 
 const playfulMessages = [
+  "ayana DONT CLICK NO",
   "The no button believes in true love and cardio.",
-  "It keeps running away. Very interesting."
+  "ATP EVEN UDITA WILL SAY YES",
+  "NOOOOO"
 ];
 
 let moveCount = 0;
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
+}
+
+function createConfetti() {
+  const colors = ["#d9193a", "#1d5eea", "#ffd24f", "#ffffff"];
+
+  confettiLayer.classList.remove("hidden");
+  confettiLayer.innerHTML = "";
+
+  for (let index = 0; index < 36; index += 1) {
+    const piece = document.createElement("span");
+    piece.className = "confetti";
+    piece.style.left = `${Math.random() * 100}%`;
+    piece.style.background = colors[index % colors.length];
+    piece.style.animationDelay = `${Math.random() * 0.35}s`;
+    piece.style.transform = `translateY(0) rotate(${Math.random() * 360}deg)`;
+    confettiLayer.appendChild(piece);
+  }
+
+  window.setTimeout(() => {
+    confettiLayer.classList.add("hidden");
+    confettiLayer.innerHTML = "";
+  }, 3200);
 }
 
 function moveNoButton(pointerX, pointerY) {
@@ -46,6 +72,8 @@ function moveNoButton(pointerX, pointerY) {
 
   noButton.style.left = `${safeX}px`;
   noButton.style.top = `${safeY}px`;
+  noButton.style.transform = `scale(${Math.max(0.72, 1 - moveCount * 0.05)})`;
+  noButton.textContent = moveCount > 3 ? "pls no" : "No";
 
   message.textContent = playfulMessages[moveCount % playfulMessages.length];
   moveCount += 1;
@@ -63,10 +91,13 @@ noButton.addEventListener("focus", () => {
 yesButton.addEventListener("click", () => {
   message.textContent = "yayyy love u";
   yesButton.textContent = "you da best";
-  noButton.style.opacity = "0.75";
+  noButton.style.opacity = "0.45";
+  noButton.textContent = "too late";
+  celebration.classList.remove("hidden");
+  createConfetti();
 });
 
 noButton.addEventListener("click", (event) => {
   event.preventDefault();
-  message.textContent = "The no button respectfully declines being clicked.";
+  message.textContent = "Nope. This website has already chosen romance.";
 });
