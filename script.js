@@ -7,7 +7,7 @@ const confettiLayer = document.getElementById("confetti-layer");
 
 const playfulMessages = [
   "ayana DONT CLICK NO",
-  "The no button believes in true love and cardio.",
+  "the yes button is better than abhishek sir's vivas bro bffr",
   "ATP EVEN UDITA WILL SAY YES",
   "NOOOOO"
 ];
