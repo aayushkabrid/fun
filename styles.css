@@ -90,11 +90,11 @@ body {
   margin: 0 auto 14px;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent 28%),
-    linear-gradient(180deg, #ea2341, #b10d2d);
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), transparent 28%),
+    linear-gradient(180deg, #ff8fbd, #ff4f93);
   box-shadow:
     inset 0 0 0 4px rgba(255, 255, 255, 0.18),
-    0 16px 30px rgba(217, 25, 58, 0.35);
+    0 16px 30px rgba(255, 99, 163, 0.34);
 }
 
 .spidey-mark svg {
@@ -106,7 +106,7 @@ body {
 .spidey-leg,
 .spidey-detail {
   fill: none;
-  stroke: #fff7e6;
+  stroke: #fffaf4;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -116,7 +116,7 @@ body {
 }
 
 .spidey-body {
-  fill: #fff7e6;
+  fill: #fffaf4;
 }
 
 .spidey-leg {
